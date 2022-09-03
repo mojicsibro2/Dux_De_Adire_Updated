@@ -1,14 +1,38 @@
-var checkHeader = _.throtle(() =>{
-    let scrollPosition = Math.random(window.scrollY);
+// function myFun(){
+//     var menu = document.querySelector('.menu-bar');
+//     menu.style.display = "inline-flex";
+//     var menu = document.querySelector('#menu');
+//     menu.style.display = "none";
+//     var menu = document.querySelector('#menuClear');
+//     menu.style.display = "flex";
 
-    if( scrollPosition > 100){
-        document.querySelector('header').classList.add("sticky");
-    
-    }
-    else{
-        document.querySelector("header").classList.remove("sticky");
-    }
+// };
+// menu.addEventListener('click',myFun);
 
-}, 300);
+images = {
+    model:"./images/adire model10.jpg"
+}
 
-window.addEventListener('scroll', checkHeader);
+function myFunc1(){
+    var menu = document.querySelector('.header');
+    menu.style.display = "flex";
+    var menu = document.querySelector('.logo');
+    menu.style.display = "none";
+    var menu = document.querySelector('.hoverM');
+    menu.style.display = "block";
+    var menu = document.querySelector('#btn');
+    menu.style.display = "block";
+};
+menu.addEventListener('click',myFunc1);
+
+function myfunc() {
+    var menu = document.querySelector('.header');
+    menu.style.display = 'none';
+    var menu = document.querySelector('.logo');
+    menu.style.display = "flex";
+}
+
+var img = document.getElementById('#mod');
+img.src = images[model];
+
+

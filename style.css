@@ -5,18 +5,19 @@
 }
 body{
     font-family: sans-serif, Arial, Helvetica;
-    background-image: linear-gradient(to right, pink, blue);
+    background: rgb(77, 3, 68);
 }
 
 .wrapper{
     overflow: hidden;
 }
 .header{
-    background-image: linear-gradient(to right, pink, blue);
+    background-image: linear-gradient(to right, rgb(190, 128, 195), rgb(77, 3, 68));
     display: flex;
+    position:absolute;
     align-items: center;
     width: 100vw;
-    position: fixed;
+    position: fixed; 
     top: 0;
 }
 .header h1{
@@ -29,41 +30,75 @@ body{
     display: flex;
     float:right;
 }
-.header ul li{
+.header button{
+    display: none;
+}
+.hoverM ul li{
     list-style: none;
 }
-.header ul li a{ 
-    display: block;
+.hoverM ul li a{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     padding:0 20px;
     color: white;
+    height: 40px;
+    width: 100px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     line-height: 50px;
 }
+.hoverM ul li a:hover{
+    border: 2px solid pink;
+    border-radius: 8px;
+}
 .active{
     background-color: pink;
+    border-radius: 8px;
 }
 .social{
     display: flex;
     margin-left: 10%;
     padding: 10px;
+    
 }
-
 .social div{
     margin-right: 5px;
     border: 5px solid white;
     border-radius: 10px;
 }
+
+.social1{
+    display: none;
+}
+
+.rotate, .skew, .translate{
+    transition-duration: 2s;
+}
+.rotate:hover{
+    transform: rotate(90deg);
+    border: 5px solid aqua;
+}
+.skew:hover{
+    transform: skew(20deg, 20deg);
+}
+.translate:hover{
+    transform: translate(10px, 10px);
+}
+.logo{
+    display: none;
+}
 .main{
     display: flex;
     margin-top: 100px;
-    height: 100vh;
+    max-width: 100%;
+    height: 80vh;
     overflow: hidden;
 
 }
 .main div{
-    width: 100vw;
+    max-width: 100vw;
     margin-right: 50px;
     border-bottom-right-radius: 100px;
     border-top-left-radius: 100px;
@@ -101,7 +136,7 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
-    background: black;
+    background: linear-gradient(to right , rgb(77, 3, 68), rgb(190, 128, 195));
     height: 100vh;
     width: 100vw;
 }
@@ -120,13 +155,21 @@ body{
 }
 .mainButton img{
     width: 200px;
-    height: 300px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 8px 5px 10px rgba(0,0,0,0.3);
+    border: 5px solid wheat;
 }
-.mainButton div{
+.mod{
     display: flex;
-    border: 10px solid rgb(42, 33, 42);
-    border-radius: 30px;
-    box-shadow: 10px 5px 5px #fff;
+    padding-left: 20%;
+    padding-right: 20%;
+    width: 100vw;
+    justify-content: space-between;
+    border: none;
+    overflow: hidden;
+}
+.mod div{
     margin-right: 30px;
 }
 .model1,.model2{
@@ -175,24 +218,352 @@ body{
     height: 200px;
 }
 .mode{
-    z-index: 1;
     height: 250px;
     margin-right: 30px;
+    margin-top: 30px;
 }
 .footer{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: black;
+    width: 100vw;
     height: 300px;
     
 }
 .footer h1{
     margin-top: 100px;
 }
+.footer :hover h1{
+    border-bottom: 5px solid red;
+}
+.footer :hover h1:last-child{
+    border-bottom: none;
+}
 .support, .contact, .brandName h1{
     color: white;
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    justify-content: center;
+}
+.support{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+    
+}
+.support h1{
+    margin-bottom: 50px;
+    border-bottom: 5px solid purple;
+    padding: 20px;
+}
+.support a{
+    text-decoration: none;
+    color: white;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30%;
+}
+.contact h1{
+    margin-bottom: 50px;
+    border-bottom: 5px solid purple;
+    padding: 20px;    
+}
+
+.brandName {
+    margin-left: 15%;
+    margin-top: 25px;
+}
+.footerL{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    font-size: larger;
+}
+.footerL p{
+    font-weight: bolder;
+    border: 3px solid purple;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:400px) {
+    .logo{
+        font-size: x-small;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        padding: 20px;
+        height: 100px;
+    }
+    .logo .menu{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid white;
+        width: 50px;
+        height: auto;
+    }
+    .logo h1{
+        border: 3px dashed rgb(221, 168, 221);
+        outline: none;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .menu div{
+        width: 40px;
+        margin-bottom: 8px;
+        border-top: 3px solid white;
+        
+    }
+    .menu :first-child{
+        margin-top: 3px;
+    }
+    .social1{
+        display: flex;
+        position: fixed;
+        top: 50%;
+        left: 2%;
+        flex-direction: column;
+        width: 40px;
+
+    }
+    .social1 div{
+        border: 5px solid white;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .wrapper{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        display: none;
+    }
+    .header h1{
+        display: none;
+    }
+    .header .social{
+        display: none;
+    }
+    #btn{
+        border: 2px solid pink;
+        outline: none;
+        position: absolute;
+        background: transparent;
+        border-radius: 8px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        top: 10%;
+        left: 80%;
+        color: whitesmoke;
+    }
+    .hoverM ul{
+        flex-direction: column;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    .main{
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .main div{
+        width: 100vw;
+        margin-bottom: 5px;
+        border-bottom-right-radius: 0px;
+        border-top-left-radius: 0px;
+        border: 1px solid rgb(226, 209, 226);
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 7px 21px 0 rgba(0,0,0,0.20);
+        transition-property: height;
+        transition-duration: 0.5ms;
+        transition-delay: 0.5ms;
+    }
+    .main h1{
+        text-align: center;
+        font-size: 50px;
+        margin-top: 2px;
+    }
+    .main img{
+        object-position: top;
+        object-fit:fill;
+        overflow: hidden;
+    }
+
+    .one,.two,.three{
+        overflow: hidden;
+    }
+    .mainButton{
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding-left: 20%;
+    }
+    .mainButton h1{
+        text-align: center;
+        font-size: large;
+    }
+
+    .mainButton p,.mainButton div,.quote{
+        display: none;
+    }
+    .model1,.model2{
+        margin-bottom: 0px;
+    }
+    .location{
+        flex-direction: column;
+    }
+    .bottom{
+        flex-wrap: wrap;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .bottom .d,.d1,.d2,.d3{
+        display: none;
+    }
+    .footer{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+    .support{
+        margin-left: 0%;
+    }
+    .contact{
+        margin-right: 20%;
+    }
+    .brandName{
+        margin-top: 0px;
+        margin-left: 0%;
+    }
+    .footerL{
+        font-size: small;
+        text-align: center;
+        margin-right: 10px;
+        width: 100vw;
+    }
+    .footerL p{
+        padding: 5px;
+    }
+}
+@media screen and (max-width:700px) {
+    .header{
+        flex-direction: column;
+    }
+    .header h1{
+        font-size: 10px;
+        margin-left: 15px;
+        margin-right: 0%;
+    }
+    .hoverM ul li a{
+        display: flex; 
+        padding:0 20px;
+        color: white;
+        height: 30px;
+        width: 60px;
+        font-weight: bold;
+        line-height: 25px;
+        font-size: 10px;
+    }
+    .social{
+        margin-left: 0%;
+    }
+    .main{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .main div{
+        width: 70vw;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    .mainButton{
+        overflow: hidden;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: auto;
+        padding: 20px;
+        
+    }
+    .mainButton h1{
+        font-size: 20px;
+        margin-right: 0px;
+    }
+    .mainButton p{
+        padding-top:5px;
+        font-size: 15px;
+    }
+    .mainButton img{
+        width: 100px;
+        height: 150px;
+    }
+    .mainButton .model{
+        display: none;
+    }
+    .mainButton .model2{
+        display: none;
+    }
+    .quote{
+        height: auto;
+    }
+    .quote #one{
+        font-size: 20px;
+        margin-top: 0px;
+        padding: 20px;
+    }
+    .quote #two{
+        margin-bottom: 5px;
+    }
+    .bottom{
+        flex-wrap: wrap;
+        height:auto ;
+        align-items: center;
+        justify-content: center;
+    }
+    .support h1{
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .contact h1{
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .brandName{
+        display: none;
+    }
+    .contact{
+        margin-top: 7%;
+        
+    }
+}
+@media  screen and (max-width: 1181px){
+    .header .social{
+        margin-left: 5%;
+    }
+    .contact{
+        margin-left: 20%;
+    }
+    .brandName{
+        margin-left: 9%;
+    }
+}
+@media  screen and (max-width: 1088px){
+    .header h1{
+        margin-right: 10%;
+    }
 }
